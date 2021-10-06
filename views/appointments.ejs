@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not A Hospital</title>
+    <link rel="stylesheet" href="/main.css">
+
+</head>
+<body>
+    <%- include('partials/nav', {isAuthenticated}) %>
+
+    <section id="list">
+        <table>
+            <tr>
+                <th>S No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Doctor</th>
+            </tr>
+            <% for(var i=0; i < data.length; i++) { %>
+                <tr>
+                    <td><%= i+1 %></td>
+                    <td><%= data[i].name %></td>
+                    <td><%= data[i].email %></td>
+                    <td><%= moment(data[i].createdAt).format("DD/MM/YYYY, h:mm:ss a") %></td>
+                    <td><%= data[i].doctor %></td>
+                </tr>
+            <% } %>
+            
+        </table>
+    </section>
+</body>
+</html>

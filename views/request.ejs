@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not A Hospital</title>
+    <link rel="stylesheet" href="/main.css">
+
+</head>
+<body>
+    <%- include('partials/nav', {isAuthenticated}) %>
+    <section id="request">
+        <% if(posted) {%>
+            <p>Your appointment success</p>
+        <% } else { %>
+            <form action="/request" method="POST">
+                <h3>Get an appointment</h3>
+                <div class="field">
+                    <label for="doctor">Doctor</label>
+                    <select name="doctor" id="doctor">
+                        <option value="Pediatrician">Pediatrician</option>
+                        <option value="Dentist">Dentist</option>
+                        <option value="Dermatologist">Dermatologist</option>
+                        <option value="Heart Specialist">Heart Specialist</option>
+                    </select>
+                </div>
+                <button type="submit">Book Now</button>
+            </form>
+        <% } %>
+    </section>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<nav>
+    <a href=""><span>Not-A-Hospital</header></a>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <% if(isAuthenticated) {%>
+            <li><a href="/request">Request appointment</a></li>
+        <% } if (isAuthenticated) {%>
+            <li><a href="/logout">Logout</a></li>
+        <% } else {%>
+            <li><a href="/login">Login</a></li>
+        <% } %> 
+    </ul>
+</nav>
