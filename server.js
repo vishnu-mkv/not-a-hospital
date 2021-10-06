@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const Appointment = require('./models/appointment');
 const Admin = require('./models/user');
 const moment = require('moment');
-require('dotenv').config('.env');
 
 const config = {
   authRequired: false,
@@ -26,7 +25,7 @@ const uri = `mongodb+srv://mkv:${process.env.DB_PASSWORD}@cluster0.9kf4f.mongodb
 mongoose.connect(uri)
 .then(data => {
 	console.log("connected to db");
-	app.listen(process.env.PORT | 3000, () => console.log("listening on port", process.env.PORT || 3000));
+	app.listen(process.env.PORT, () => console.log("listening on port", process.env.PORT));
 })
 .catch(err => console.log(err));
     
