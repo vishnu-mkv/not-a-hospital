@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const Appointment = require('./models/appointment');
 const Admin = require('./models/user');
 const moment = require('moment');
-require('dotenv').config();
 
 const config = {
   authRequired: false,
