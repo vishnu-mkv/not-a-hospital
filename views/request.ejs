@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not A Hospital</title>
+    <title>SEMESTERS</title>
     <link rel="stylesheet" href="/main.css">
 
 </head>
@@ -12,20 +12,24 @@
     <%- include('partials/nav', {isAuthenticated}) %>
     <section id="request">
         <% if(posted) {%>
-            <p>Your appointment success</p>
+            <p>Your registration is successful</p>
         <% } else { %>
             <form action="/request" method="POST">
-                <h3>Get an appointment</h3>
+                <h3>REGISTER FOR 2021-2022 SEMESTER EXAM</h3>
                 <div class="field">
-                    <label for="doctor">Doctor</label>
+                    <label for="doctor">SEMESTER</label>
                     <select name="doctor" id="doctor">
-                        <option value="Pediatrician">Pediatrician</option>
-                        <option value="Dentist">Dentist</option>
-                        <option value="Dermatologist">Dermatologist</option>
-                        <option value="Heart Specialist">Heart Specialist</option>
+                        <option value="SEM 1">SEM 1</option>
+                        <option value="SEM 2">SEM 2</option>
+                        <option value="SEM 3">SEM 3</option>
+                        <option value="SEM 4">SEM 4</option>
+                        <option value="SEM 5">SEM 5</option>
+                        <option value="SEM 6">SEM 6</option>
+                        <option value="SEM 7">SEM 7</option>
+                        <option value="SEM 8">SEM 8</option>
                     </select>
                 </div>
-                <button type="submit">Book Now</button>
+                <button type="submit">REGISTER</button>
             </form>
         <% } %>
     </section>
