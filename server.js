@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Appointment = require('./models/appointment');
 const Admin = require('./models/user');
 const moment = require('moment');
+require('dotenv').config();
 
 const config = {
   authRequired: false,
@@ -39,7 +40,8 @@ app.get('/request', requiresAuth(), (req, res) => {
 
 app.post('/request', requiresAuth(), (req, res) => {
 
-	const appointment = new Appointment({"name": req.oidc.user.nickname, "email": req.oidc.user.email, "doctor": req.body.doctor});
+	const appointment = new Appointment({"name": req.oidc.user.nickname, "email": req.oidc.user.email, "doctor": req.body.doctor, 
+							"slot": req.body.slot});
 	appointment.save()
 		.then(data => res.render('request', {'isAuthenticated': req.oidc.isAuthenticated(), 'posted': true}))
 		.catch(err => res.status(500).render('500', {'isAuthenticated': req.oidc.isAuthenticated()}));

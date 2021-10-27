@@ -13,6 +13,10 @@ const appointmentSchema = new Schema({
     doctor: {
         type: String,
         required: true
+    },
+    slot: {
+        type: String,
+        required: false
     }
 }, {timestamps: true});
 

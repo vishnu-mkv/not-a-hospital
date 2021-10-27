@@ -16,17 +16,17 @@
             <tr>
                 <th>S No</th>
                 <th>Name</th>
-                <th>Email</th>
                 <th>Date</th>
                 <th>Doctor</th>
+                <th>Slot</th>
             </tr>
             <% for(var i=0; i < data.length; i++) { %>
                 <tr>
                     <td><%= i+1 %></td>
                     <td><%= data[i].name %></td>
-                    <td><%= data[i].email %></td>
-                    <td><%= moment(data[i].createdAt).format("DD/MM/YYYY, h:mm:ss a") %></td>
+                    <td><%= moment(data[i].createdAt).format("DD-MM-YYYY, h:mm:ss a") %></td>
                     <td><%= data[i].doctor %></td>
+                    <td><%= data[i].slot %></td>
                 </tr>
             <% } %>
             
