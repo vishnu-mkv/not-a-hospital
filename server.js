@@ -1,7 +1,7 @@
 const express = require('express');
 const { auth, requiresAuth } = require('express-openid-connect');
 const mongoose = require('mongoose');
-const Appointment = require('./models/appointment');
+const Appointment = require('./models/registration');
 const Admin = require('./models/user');
 const moment = require('moment');
 require('dotenv').config();
@@ -46,7 +46,7 @@ app.post('/request', requiresAuth(), (req, res) => {
 		.catch(err => res.status(500).render('500', {'isAuthenticated': req.oidc.isAuthenticated()}));
 });
 
-app.get('/appointments', requiresAuth(), function (req, res) {
+app.get('/registrations', requiresAuth(), function (req, res) {
 
 	Admin.find({"email": req.oidc.user.email})
 		.then(data => {
@@ -54,7 +54,7 @@ app.get('/appointments', requiresAuth(), function (req, res) {
 				res.status(403).render('403', {'isAuthenticated': req.oidc.isAuthenticated()});
 			}else {
 				Appointment.find()
-					.then(data => res.render('appointments', {data, 'isAuthenticated': req.oidc.isAuthenticated(), moment}))
+					.then(data => res.render('registrations', {data, 'isAuthenticated': req.oidc.isAuthenticated(), moment}))
 					.catch(err => res.status(500).render('500', {'isAuthenticated': req.oidc.isAuthenticated()}));
 			}
 		})
